@@ -32,6 +32,7 @@ public class ProductRepo {
            if (product.id().equals(id)) {
                products.remove(product);
                return;
+
            }
         }
     }
