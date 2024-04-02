@@ -7,6 +7,13 @@ public class OrderMapRepo implements OrderRepo{
     private Map<String, Order> orders = new HashMap<>();
 
     @Override
+    public List<Order> findOrdersByStatus(OrderStatus status) {
+        return orders.values().stream()
+                .filter(order -> order.status() == status)
+                .toList();
+    }
+
+    @Override
     public List<Order> getOrders() {
         return new ArrayList<>(orders.values());
     }
@@ -27,3 +34,4 @@ public class OrderMapRepo implements OrderRepo{
         orders.remove(id);
     }
 }
+
